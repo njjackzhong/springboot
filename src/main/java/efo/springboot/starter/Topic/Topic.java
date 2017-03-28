@@ -1,11 +1,16 @@
 package efo.springboot.starter.Topic;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
 /**
  * Created by jack on 2017/3/28.
  *
  * @version 1.0
  */
+@Entity
 public class Topic {
+    @Id
     private String id;
     private String name;
     private String description;
