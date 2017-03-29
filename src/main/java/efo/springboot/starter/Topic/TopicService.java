@@ -14,38 +14,28 @@ import java.util.List;
 public class TopicService {
 
     @Autowired
-    private TopicRespository topicRespository;
+    private TopicRepository topicRepository;
 
-    private List<Topic> topics = new ArrayList<>(Arrays.asList(
-            new Topic("java", "Core Java", "Core Java Description"),
-            new Topic("spring", "Spring Framework", "Spring Framework Description"),
-            new Topic("javascript", "JavaScript", "JavaScript Description")
-    ));
 
     public List<Topic> getAllTopics() {
-//        return topics;
         List<Topic> topics = new ArrayList<>();
-        topicRespository.findAll().forEach(topics::add);
+        topicRepository.findAll().forEach(topics::add);
         return topics;
     }
 
     public Topic getTopic(String id) {
-        return topics.parallelStream().filter(t -> t.getId().equals(id)).findFirst().orElse(new Topic());
+        return topicRepository.findOne(id);
     }
 
     public void addTopic(Topic topic) {
-//        topics.add(topic);
-        topicRespository.save(topic);
+        topicRepository.save(topic);
     }
 
     public void updateTopic(Topic topic) {
-        topics.parallelStream().filter(t -> t.getId().equals(topic.getId())).forEach(t -> {
-            t.setDescription(topic.getDescription());
-            t.setName(topic.getName());
-        });
+        topicRepository.save(topic);
     }
 
     public void deleteTopic(String id) {
-        topics.removeIf(t -> t.getId().equals(id));
+        topicRepository.delete(id);
     }
 }
