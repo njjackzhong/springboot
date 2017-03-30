@@ -1,0 +1,14 @@
+{
+  "properties": [
+    {
+      "name": "app.com.name",
+      "type": "java.lang.String",
+      "description": "Description for app.com.name."
+    },
+    {
+      "name": "app.com.rate",
+      "type": "java.lang.String",
+      "description": "Description for app.com.rate."
+    }
+  ]
+}
