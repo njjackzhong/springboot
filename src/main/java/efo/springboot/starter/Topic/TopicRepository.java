@@ -1,5 +1,6 @@
 package efo.springboot.starter.Topic;
 
+import efo.springboot.starter.Course.Course;
 import org.springframework.data.repository.CrudRepository;
 
 /**
@@ -7,4 +8,5 @@ import org.springframework.data.repository.CrudRepository;
  * @version  1.0
  */
 public interface TopicRepository extends CrudRepository<Topic,String> {
+
 }
