@@ -9,14 +9,17 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.event.ContextRefreshedEvent;
+import org.springframework.scheduling.annotation.EnableScheduling;
 
 @SpringBootApplication
-@EnableRabbit
+//TODO:2017-04-11
+//@EnableRabbit
+@EnableScheduling
 public class CourseApp {
 
 
-    @Autowired
-    RabbitMqReceiver mqReceiver;
+//    @Autowired
+//    RabbitMqReceiver mqReceiver;
 
     public static void main(String[] args) {
 
@@ -24,16 +27,9 @@ public class CourseApp {
         //2.start Spring application context
         //3.performs class path scan
         //4.starts tomcat server
-        SpringApplication app = new SpringApplication(CourseApp.class);
-        app.addListeners(new CourseAppListener());
-        app.run(args);
-//        SpringApplication.run(CourseApp.class, args);
+//        SpringApplication app = new SpringApplication(CourseApp.class);
+//        app.addListeners(new CourseAppListener());
+//        app.run(args);
+        SpringApplication.run(CourseApp.class, args);
     }
-
-    /**
-     *
-     */
-
-
-
 }

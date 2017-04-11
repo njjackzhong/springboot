@@ -50,7 +50,7 @@ public class AppConfig {
             return "Com{" +
                     "name='" + name + '\'' +
                     ", rate='" + rate + '\'' +
-                    '}';
+                    '}' + '\n';
         }
     }
 }
