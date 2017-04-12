@@ -1,25 +1,19 @@
 package efo.springboot.starter;
 
-import efo.springboot.starter.core.CourseAppListener;
-import efo.springboot.starter.util.RabbitMqReceiver;
-import org.apache.log4j.spi.LoggerFactory;
+import jdk.nashorn.internal.runtime.logging.Logger;
 import org.springframework.amqp.rabbit.annotation.EnableRabbit;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.ApplicationListener;
-import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.scheduling.annotation.EnableScheduling;
 
 @SpringBootApplication
-//TODO:2017-04-11
-//@EnableRabbit
+@EnableRabbit
 @EnableScheduling
+@Logger()
 public class CourseApp {
 
 
-//    @Autowired
-//    RabbitMqReceiver mqReceiver;
+
 
     public static void main(String[] args) {
 

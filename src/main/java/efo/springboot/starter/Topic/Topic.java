@@ -47,4 +47,12 @@ public class Topic {
     public void setDescription(String description) {
         this.description = description;
     }
+
+    /**
+     * Returns a string representation of the object.
+     */
+    @Override
+    public String toString() {
+        return String.format("{\"id\":%s,\"name\":%s,\"description\":%s}",id,name,description);
+    }
 }
