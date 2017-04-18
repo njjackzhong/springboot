@@ -12,22 +12,15 @@ import org.springframework.stereotype.Service;
 
 
 /**
- * ${VERSION}
+ * @author JackLee
+ * @version  1.0
  * Created by jack on 2017/3/30
  */
 @Service
 public class RMQReceiver {
-    @RabbitListener(queues = "queue")
+    @RabbitListener(queues = {"queue"})
     public void processMessage(Topic topic){
         System.out.println(String.format("receive message:%s", topic));
-
-
-//        try{
-//        ObjectMapper mapper= new ObjectMapper();
-//        System.out.printf(mapper.writeValueAsString(topic));
-//        }catch (JsonProcessingException e) {
-//            e.printStackTrace();
-//        }
 
     }
 }
