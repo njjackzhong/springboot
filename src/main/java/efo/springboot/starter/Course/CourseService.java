@@ -1,8 +1,16 @@
 package efo.springboot.starter.Course;
 
+import com.fasterxml.jackson.databind.util.JSONPObject;
+import com.rabbitmq.tools.json.JSONReader;
+import com.rabbitmq.tools.json.JSONUtil;
+import com.rabbitmq.tools.json.JSONWriter;
+import efo.springboot.starter.core.AppConfig;
+import org.json.JSONObject;
+import org.json.JSONStringer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.PostConstruct;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,8 +20,15 @@ import java.util.List;
 @Service
 public class CourseService {
 
+    private final AppConfig appConfig;
+
+    private final CourseRepository courseRepository;
+
     @Autowired
-    private CourseRepository courseRepository;
+    public CourseService(AppConfig appConfig, CourseRepository courseRepository) {
+        this.appConfig = appConfig;
+        this.courseRepository = courseRepository;
+    }
 
 
     public List<Course> getAllCourses(String topicId) {
@@ -37,5 +52,11 @@ public class CourseService {
 
     public void deleteCourse(String id) {
         courseRepository.delete(id);
+    }
+
+    @PostConstruct
+    public void display(){
+
+        System.out.println(String.format("ip:%s,enabled:%s,user:%s,name:%s",appConfig.getRemoteAddress(),appConfig.isEnabled(),appConfig.getSecurity().getUsername(),appConfig.getSecurity().getPassword()));
     }
 }

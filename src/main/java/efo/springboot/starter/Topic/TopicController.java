@@ -21,7 +21,7 @@ public class TopicController {
 
     @RequestMapping(value = "/topics")
     public List<Topic> getAllTopics() {
-        System.out.printf(appConfig.getCom().toString());
+        //System.out.printf(appConfig.getCom().toString());
         return topicService.getAllTopics();
     }
 

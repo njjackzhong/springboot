@@ -3,54 +3,76 @@ package efo.springboot.starter.core;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
 /**
  * @version 1.0
  *          Created by JackLee on 2017/3/30.
  */
-
 @Component
 @ConfigurationProperties(prefix = "app", ignoreUnknownFields = false)
 public class AppConfig {
-    private  Com com = new Com();
 
-    public Com getCom() {
-        return com;
+    private boolean enabled;
+
+    private String remoteAddress;
+
+
+    private final Security security = new Security();
+
+    public Security getSecurity() {
+        return security;
     }
 
-    public void setCom(Com com) {
-        this.com = com;
+    public String getRemoteAddress() {
+        return remoteAddress;
+    }
+
+    public void setRemoteAddress(String remoteAddress) {
+        this.remoteAddress = remoteAddress;
+    }
+
+    public boolean isEnabled() {
+        return enabled;
+    }
+
+    public void setEnabled(boolean enabled) {
+        this.enabled = enabled;
     }
 
 
-    public static class Com {
-        public Com() {
+    public static class Security {
+
+        private String username;
+
+        private String password;
+
+        private List<String> roles = new ArrayList<>(Collections.singleton("USER"));
+
+        public String getUsername() {
+            return username;
         }
 
-        private String name;
-        private String rate;
-
-        public String getName() {
-            return name;
+        public void setUsername(String username) {
+            this.username = username;
         }
 
-        public void setName(String name) {
-            this.name = name;
+        public String getPassword() {
+            return password;
         }
 
-        public String getRate() {
-            return rate;
+        public void setPassword(String password) {
+            this.password = password;
         }
 
-        public void setRate(String rate) {
-            this.rate = rate;
+        public List<String> getRoles() {
+            return roles;
         }
 
-        @Override
-        public String toString() {
-            return "Com{" +
-                    "name='" + name + '\'' +
-                    ", rate='" + rate + '\'' +
-                    '}' + '\n';
+        public void setRoles(List<String> roles) {
+            this.roles = roles;
         }
     }
 }

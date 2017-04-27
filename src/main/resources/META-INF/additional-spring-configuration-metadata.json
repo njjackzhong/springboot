@@ -9,6 +9,21 @@
       "name": "app.com.rate",
       "type": "java.lang.String",
       "description": "Description for app.com.rate."
+    },
+    {
+      "name": "app.enabled",
+      "type": "java.lang.String",
+      "description": "Description for app.enabled."
+    },
+    {
+      "name": "app.security.password",
+      "type": "java.lang.String",
+      "description": "Description for app.security.password."
+    },
+    {
+      "name": "app.security.username",
+      "type": "java.lang.String",
+      "description": "Description for app.security.username."
     }
   ]
 }
